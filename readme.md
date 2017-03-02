@@ -1,13 +1,13 @@
 # About Vue-music
 #效果图
 ####热门歌曲
-![image](https://github.com/LaravelChen/laravel-vue/raw/master/public/images/hotsong.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/hotsong.png)
 ####热门歌手单曲
-![image](https://github.com/LaravelChen/laravel-vue/raw/master/public/images/hotsonger.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/hotsonger.png)
 ####搜索
-![image](https://github.com/LaravelChen/laravel-vue/raw/master/public/images/searchmusic.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/searchmusic.png)
 ####显示歌词
-![image](https://github.com/LaravelChen/laravel-vue/raw/master/public/images/showlyrics.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/showlyrics.png)
 
 ##技术栈
 ####1.采用Laravel5.3和Vue2.0完成的SPA应用，
