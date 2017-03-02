@@ -22190,25 +22190,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     data: function data() {
         return {
             lyric: [],
-            lyricText: ''
+            lyricText: '请选择喜爱的歌曲'
         };
     },
     mounted: function mounted() {
         var _this = this;
 
-        if (this.$route.params.songid == 0) {
-            this.lyricText = '请选择喜爱的歌曲';
-        } else {
-            axios.post('/lyrics', { songid: this.$route.params.songid }).then(function (response) {
-                _this.$store.state.audio.addEventListener("timeupdate", _this.updateLyric);
-                _this.parseLyric(response.data.lrc.lyric);
-            });
-        }
+        axios.post('/lyrics', { songid: this.$route.params.songid }).then(function (response) {
+            _this.$store.state.audio.addEventListener("timeupdate", _this.updateLyric);
+            _this.parseLyric(response.data.lrc.lyric);
+        });
     },
 
     methods: {
@@ -24942,7 +24941,7 @@ exports.push([module.i, "/*! normalize.css v4.1.1 | MIT License | github.com/nec
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n#lyricWrapper {\n    display: block;\n    height: 440px;\n    overflow: hidden;\n    position: relative;\n    top: -20px;\n    color: #fff;\n}\n#lyricContainer {\n    position: relative;\n    top: 100px;\n    width: 100%;\n}\n#lyricContainer .current-line {\n    color: #03a9f4;\n    font-size: 18px;\n}\n#lyricContainer p {\n    margin: 1.1em auto;\n    width: 100%;\n    font-size: 16px;\n    color: #9e9e9e;\n    text-align: center;\n    -webkit-transition: color .5s linear;\n    transition: color .5s linear;\n}\n.site-branding {\n    max-width: 100%;\n    padding: 100px 45px;\n    position: relative;\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n[v-cloak] {\n  display: none;\n}\n#lyricWrapper {\n    display: block;\n    height: 440px;\n    overflow: hidden;\n    position: relative;\n    top: -20px;\n    color: #fff;\n}\n#lyricContainer {\n    position: relative;\n    top: 100px;\n    width: 100%;\n}\n#lyricContainer .current-line {\n    color: #03a9f4;\n    font-size: 18px;\n}\n#lyricContainer p {\n    margin: 1.1em auto;\n    width: 100%;\n    font-size: 16px;\n    color: #9e9e9e;\n    text-align: center;\n    -webkit-transition: color .5s linear;\n    transition: color .5s linear;\n}\n.site-branding {\n    max-width: 100%;\n    padding: 100px 45px;\n    position: relative;\n    text-align: center;\n}\n", ""]);
 
 /***/ }),
 /* 47 */
@@ -42687,18 +42686,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "padding-top": "220px",
       "padding-bottom": "30px"
     }
-  }, [_c('div', {
+  }, [(!_vm.lyric.length) ? _c('h1', {
+    staticClass: "text-center",
+    staticStyle: {
+      "color": "#03a9f4"
+    },
+    domProps: {
+      "textContent": _vm._s(_vm.lyricText)
+    }
+  }) : _vm._e(), _vm._v(" "), _c('div', {
     staticClass: "site-branding text-center",
     attrs: {
       "id": "lyricWrapper"
     }
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.lyric.length != 0),
-      expression: "lyric.length != 0"
-    }],
+  }, [(_vm.lyric.length != 0) ? _c('div', {
     attrs: {
       "id": "lyricContainer"
     }
@@ -42708,7 +42709,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "id": 'line-' + index
       }
     }, [_vm._v(_vm._s(lrc[1]))])
-  })), _vm._v(" "), _c('h1', [_vm._v(_vm._s(_vm.lyricText))])])])
+  })) : _vm._e()])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -42940,7 +42941,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     slot: "left"
   }), _vm._v(" "), _c('mu-icon-button', {
     attrs: {
-      "href": "https://github.com/LaravelChen/laravel-vue"
+      "href": "https://github.com/LaravelChen/vue-music"
     },
     slot: "right"
   }, [_c('i', {

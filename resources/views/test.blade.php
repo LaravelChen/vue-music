@@ -8,7 +8,6 @@
     <script src="//cdn.bootcss.com/vue/2.1.3/vue.min.js"></script>
 </head>
 <div id="app">
-
 </div>
 <script>
     new Vue({
