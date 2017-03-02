@@ -2,7 +2,7 @@
     <div style="position:fixed;width:100%;z-index: 1000;">
         <mu-appbar title="Enjoy Music">
             <mu-icon-button @click="gohome" icon='queue_music' slot="left"/>
-            <mu-icon-button  href="https://github.com/LaravelChen/laravel-vue" slot="right">
+            <mu-icon-button  href="https://github.com/LaravelChen/vue-music" slot="right">
                 <i class="fa fa-github"></i>
             </mu-icon-button>
         </mu-appbar>
