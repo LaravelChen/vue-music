@@ -15,6 +15,7 @@ import  FindSongList from './components/Music/FindSongList.vue'
 import  SearchMusic from './components/Music/SearchMusic.vue'
 import SongList from './components/Music/SongList.vue'
 import Lyrics from './components/Music/Lyrics.vue'
+import MyCollect from './components/Music/MyCollect.vue'
 
 //vuerouter路由
 const router = new VueRouter({
@@ -24,6 +25,7 @@ const router = new VueRouter({
         {path: '/searchmusic', component: SearchMusic},
         {path: '/songlist/:songlistId', name: 'songlist', component: SongList},
         {path: '/lyrics/:songid', name: 'lyrics', component: Lyrics},
+        {path: '/mycollect',component: MyCollect},
     ]
 })
 
@@ -32,6 +34,20 @@ const store = new Vuex.Store({
     state: {
         songid: 0, //播放歌曲的id
         audio:document.createElement('audio'),
+        songlist:[
+            {
+                songtitle:'你还要我怎样',
+                songer:'薛之谦',
+                album:'意外',
+                songid:'27955653',
+            },
+            {
+                songtitle:'我好像在哪见过你',
+                songer:'薛之谦',
+                album:'初学者',
+                songid:'417859631',
+            }
+        ],
     },
     mutations: {
         //设置播放歌曲的id

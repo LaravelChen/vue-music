@@ -4,12 +4,12 @@
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="row">
                     <div class="fontstyle">
-                        <a><i class="fa fa-step-backward"></i></a>
+                        <a @click="prePlay"><i class="fa fa-step-backward"></i></a>
                         <a @click="play">
                             <i style="width:20px" v-if="!isplay" class="fa fa-play"></i>
                             <i style="width:20px" v-if="isplay" class="fa fa-pause"></i>
                         </a>
-                        <a><i class="fa fa-step-forward"></i></a>
+                        <a @click="nextPlay"><i class="fa fa-step-forward"></i></a>
                     </div>
                     <div class="media col-md-6">
                         <div @click="showlyrics" class="media-left">
@@ -31,8 +31,9 @@
                     <div class="hidden-xl hidden-sm" style="float:left;padding-top:38px;width:80px;margin-left:10px">
                         <mu-slider @change="SetVolume" v-model="volume" class="demo-slider"/>
                     </div>
-                    <div class="hidden-xl hidden-sm" style="float:left;padding-top:40px;margin-left:30px">
-                        <i class="fa fa-repeat" aria-hidden="true" style="color:#757575"></i>
+                    <div  class="hidden-xl hidden-sm" style="float:left;padding-top:40px;margin-left:30px">
+                        <i @click="isloop" title="顺序播放" v-if="!isrepeat" class="fa fa-repeat" aria-hidden="true" style="color:#757575"></i>
+                        <i @click="isloop" title="循环播放" v-if="isrepeat" class="fa fa-refresh" aria-hidden="true" style="color:#757575"></i>
                     </div>
                 </div>
             </div>
@@ -40,6 +41,9 @@
     </transition>
 </template>
 <style>
+    .fontstyle a{
+         color:#ec407a;
+    }
     .mu-slider:hover{
         cursor:pointer;
     }
@@ -76,8 +80,6 @@
     img:hover{
          cursor:pointer;
     }
-
-
 </style>
 <script>
     export default{
@@ -86,7 +88,7 @@
                 isshow:false,
                 progress:0,//播放进度的初始化
                 volume:100,//音量的初始化
-               // $store.state.audio:document.createElement('$store.state.audio'), //获取audio的对象
+                isrepeat:false,//是否循环播放
                 isplay:false,//是否播放以显示按钮
                 showCurrentTime:'0:00',//当前歌曲时间
                 showDurationTime:'0:00',//歌曲总时间
@@ -100,16 +102,15 @@
         //初始化一下
         mounted(){
              setInterval(this.getsongid,500);//判断是否选择歌曲
-             //this.$store.state.audio.addEventListener("ended",this.autoNextPlay);//监听是否结束
-             this.autoplay();//循环播放
+             this.$store.state.audio.addEventListener("ended",this.autoNextPlay);//监听是否结束
         },
         //监听是否选择歌曲
         watch:{
             songid(){
                 axios.post('/playsong',{songid:this.songid}).then((response)=>{
-                    var songinfo=JSON.parse(response.data.songinfo);//将json字符串转化为json对象
-                    var result=songinfo.result.songs[0];//获取歌曲信息
-                    var singlesong=JSON.parse(response.data.songurl);//将json字符串转化为json对象
+                    let songinfo=JSON.parse(response.data.songinfo);//将json字符串转化为json对象
+                    let result=songinfo.result.songs[0];//获取歌曲信息
+                    let singlesong=JSON.parse(response.data.songurl);//将json字符串转化为json对象
                     this.songtitle=result.name;//获取歌曲名字
                     this.songer=result.ar[0].name;//获取歌手名字
                     this.picurl=result.al.picUrl;//获取歌曲图片
@@ -139,7 +140,7 @@
             },
             //设置播放进度条
             SetProgress(){
-                var MM,SS,
+                let MM,SS,
                     currentTime=this.$store.state.audio.currentTime, //获取当前的歌曲的时间
                     totalTime=this.$store.state.audio.duration;//获取当前的歌曲的总时间
                 MM=parseInt(currentTime/60);
@@ -163,9 +164,61 @@
                     this.muted=false;
                 }
             },
-            //循环播放
+            //设置播放形式
+            isloop(){
+                if(this.isrepeat){
+                     this.$store.state.audio.loop=false;//循环播放
+                     this.isrepeat=false;
+                }else{
+                    this.$store.state.audio.loop=true;
+                    this.isrepeat=true;
+                }
+            },
+            //下一首
+            nextPlay(){
+                this.autoplay();
+            },
+            //上一首
+            prePlay(){
+                let obj=this.$store.state.songlist;
+                let newobj={};
+                if(!this.$store.state.audio.loop){
+                    for(var i=obj.length-1;i>=0;--i){
+                        if(obj[i].songid===this.$store.state.songid){
+                            if(i==0){
+                                newobj=obj[obj.length-1];
+                            }else{
+                               newobj=obj[i-1];
+                            }
+                           this.$store.dispatch('playsong',{songid:newobj.songid});
+                           return false;
+                        }
+                    }
+                }
+            },
+            //循环列表播放
+            autoNextPlay(){
+               if(!this.isrepeat){
+                    this.autoplay();
+               }
+            },
+            //循环列表播放的调用函数
             autoplay(){
-                this.$store.state.audio.loop=true;
+                let obj=this.$store.state.songlist;
+                let newobj={};
+                if(!this.$store.state.audio.loop){
+                    for(var i=0;i<obj.length;++i){
+                        if(obj[i].songid===this.$store.state.songid){
+                            if(i==obj.length-1){
+                                newobj=obj[0];
+                            }else{
+                               newobj=obj[i+1];
+                            }
+                           this.$store.dispatch('playsong',{songid:newobj.songid});
+                           return false;
+                        }
+                    }
+                }
             },
             //显示歌词
             showlyrics(){

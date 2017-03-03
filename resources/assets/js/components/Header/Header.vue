@@ -32,6 +32,12 @@
                         <i class="mu-bottom-item-icon mu-icon material-icons">visibility</i> <span
                             class="mu-bottom-item-text">显示歌词</span></div>
                 </mu-bottom-nav-item>
+                <mu-bottom-nav-item value="mycollect">
+                    <div @click="mycollect" class="mu-buttom-item-wrapper">
+                        <div class="mu-ripple-wrapper"></div>
+                        <i class="mu-bottom-item-icon mu-icon material-icons">home</i> <span
+                            class="mu-bottom-item-text">播放列表</span></div>
+                </mu-bottom-nav-item>
             </mu-bottom-nav>
         </mu-paper>
     </div>
@@ -76,6 +82,9 @@ export default {
     },
     showlyrics(){
         this.$router.push({name:'lyrics',params:{songid:this.$store.state.songid}});
+    },
+    mycollect(){
+        this.$router.push('/mycollect');
     },
     gohome(){
         this.$router.push('/');

@@ -1,6 +1,5 @@
 <template>
     <div class="col-md-8 col-md-offset-2" style="padding-top:220px;padding-bottom:30px">
-        <h1  v-cloak class="text-center" v-text="lyricText" style="color:#03a9f4" v-if="!lyric.length"></h1>
         <div  id="lyricWrapper" class="site-branding text-center">
             <div v-if="lyric.length != 0" id="lyricContainer">
                 <p v-for="(lrc, index) in lyric" :id="'line-'+index">{{lrc[1]}}</p>
@@ -9,9 +8,6 @@
     </div>
 </template>
 <style>
-[v-cloak] {
-  display: none;
-}
 #lyricWrapper {
     display: block;
     height: 440px;
@@ -52,7 +48,6 @@
         data(){
             return {
                  lyric:[],
-                 lyricText:'请选择喜爱的歌曲',
             }
         },
         mounted(){
