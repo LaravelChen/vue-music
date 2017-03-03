@@ -3,11 +3,11 @@
 ####热门歌曲
 ![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/songlist.png)
 ####热门歌手单曲
-![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/hotsonger.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/newhotsonger.png)
 ####搜索
-![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/searchmusic.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/newsearchmusic.png)
 ####显示歌词
-![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/showlyrics.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/newshowlyrics.png)
 ####播放列表
 ![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/playlist.png)
 
