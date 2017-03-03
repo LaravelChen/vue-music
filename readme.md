@@ -1,7 +1,7 @@
 # About Vue-music
 #效果图
 ####热门歌曲
-![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/playlist.png)
+![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/songlist.png)
 ####热门歌手单曲
 ![image](https://github.com/LaravelChen/vue-music/raw/master/public/images/hotsonger.png)
 ####搜索
