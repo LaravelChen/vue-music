@@ -22132,6 +22132,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = {
@@ -25168,7 +25174,7 @@ exports.push([module.i, "\n.mu-list{\n   background-color:#f5f5f5;\n}\np {\n    
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n.row {\n    display:block;\n}\n.mu-card-text{\n    padding:10px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.mu-card{\n    margin-bottom:20px;\n}\n.mu-card:hover{\n    cursor:pointer;\n}\n@media screen and (min-width: 991px){\n.mu-card-media-title {\n        position: absolute;\n        left: 0;\n        right: 0;\n        bottom: 0;\n        padding:0;\n        background-color: rgba(0,0,0,.54);\n}\n}\n@media screen and (min-width: 768px){\n.mu-card-media-title .mu-card-title {\n        font-size: 10px;\n        color: hsla(0,0%,100%,.87);\n        line-height: 36px;\n        text-align: center;\n}\n}\n\n\n\n", ""]);
+exports.push([module.i, "\n.row {\n    display:block;\n}\n.mu-card-text{\n    padding:10px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.mu-card{\n    margin-bottom:20px;\n}\n.mu-card:hover{\n    cursor:pointer;\n}\n@media screen and (min-width: 991px){\n.mu-card-media-title {\n        position: absolute;\n        left: 0;\n        right: 0;\n        bottom: 0;\n        padding:0;\n        background-color: rgba(0,0,0,.54);\n}\n}\n@media screen and (min-width: 768px){\n.mu-card-media-title .mu-card-title {\n        font-size: 10px;\n        color: hsla(0,0%,100%,.87);\n        line-height: 36px;\n        text-align: center;\n}\n}\n@media screen and (max-width: 768px){\n.col-md-6{\n    position:static;\n}\n}\n\n\n\n", ""]);
 
 /***/ }),
 /* 54 */
@@ -43224,7 +43230,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "mu-bottom-item-icon mu-icon material-icons"
   }, [_vm._v("favorite")]), _vm._v(" "), _c('span', {
     staticClass: "mu-bottom-item-text"
-  }, [_vm._v("热门歌手单曲")])])]), _vm._v(" "), _c('mu-bottom-nav-item', {
+  }, [_vm._v("歌手单曲")])])]), _vm._v(" "), _c('mu-bottom-nav-item', {
     attrs: {
       "value": "searchmusic"
     }
@@ -43559,9 +43565,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.playsong(list.id, list.name, list.ar[0].name, list.al.name)
         }
       }
-    }, [_vm._m(1, true), _vm._v(" "), _c('td', [_vm._v(_vm._s(list.name))]), _vm._v(" "), _c('td', [(list.ar.length >= 1) ? _c('span', [_vm._v(_vm._s(list.ar[0].name))]) : _vm._e(), _vm._v(" "), (list.ar.length >= 2) ? _c('span', [_vm._v("/ " + _vm._s(list.ar[1].name))]) : _vm._e(), _vm._v(" "), (list.ar.length >= 3) ? _c('span', [_vm._v("/ " + _vm._s(list.ar[2].name))]) : _vm._e(), _vm._v(" "), (list.ar.length >= 4) ? _c('span', [_vm._v("/ " + _vm._s(list.ar[3].name))]) : _vm._e()]), _vm._v(" "), _c('td', {
-      staticClass: "hidden-sm"
-    }, [_vm._v(_vm._s('《' + list.al.name + '》'))])])
+    }, [_vm._m(1, true), _vm._v(" "), _c('td', [_vm._v(_vm._s(list.name))]), _vm._v(" "), _c('td', [(list.ar.length >= 1) ? _c('span', [_vm._v(_vm._s(list.ar[0].name))]) : _vm._e(), _vm._v(" "), (list.ar.length >= 2) ? _c('span', [_vm._v("/ " + _vm._s(list.ar[1].name))]) : _vm._e(), _vm._v(" "), (list.ar.length >= 3) ? _c('span', [_vm._v("/ " + _vm._s(list.ar[2].name))]) : _vm._e(), _vm._v(" "), (list.ar.length >= 4) ? _c('span', [_vm._v("/ " + _vm._s(list.ar[3].name))]) : _vm._e()]), _vm._v(" "), _c('td', [_vm._v(_vm._s('《' + list.al.name + '》'))])])
   }))])], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', {

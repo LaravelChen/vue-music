@@ -56,6 +56,12 @@
     }
 }
 
+@media screen and (max-width: 768px){
+  .col-md-6{
+    position:static;
+  }
+}
+
 
 
 </style>

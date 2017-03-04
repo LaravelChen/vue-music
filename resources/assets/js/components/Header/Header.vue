@@ -18,7 +18,7 @@
                     <div @click="findlovesong" class="mu-buttom-item-wrapper">
                         <div class="mu-ripple-wrapper"></div>
                         <i class="mu-bottom-item-icon mu-icon material-icons">favorite</i> <span
-                            class="mu-bottom-item-text">热门歌手单曲</span></div>
+                            class="mu-bottom-item-text">歌手单曲</span></div>
                 </mu-bottom-nav-item>
                 <mu-bottom-nav-item value="searchmusic">
                     <div @click="searchmusic" class="mu-buttom-item-wrapper">

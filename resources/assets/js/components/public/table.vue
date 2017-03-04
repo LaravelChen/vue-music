@@ -22,7 +22,7 @@
                     <span v-if="list.ar.length >= 3">/ {{list.ar[2].name}}</span>
                     <span v-if="list.ar.length >= 4">/ {{list.ar[3].name}}</span>
                 </td>
-                <td class="hidden-sm">{{ '《' +list.al.name+ '》'}}</td>
+                <td>{{ '《' +list.al.name+ '》'}}</td>
             </tr>
             </tbody>
         </table>
